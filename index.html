@@ -56,8 +56,8 @@
 </head>
 <body>
   <h2>조미료 계산기</h2>
-  <label>냉육수 양 (g):</label>
-  <input type="number" id="broth" placeholder="예: 15000">
+  <label>육수 양 (ml):</label>
+  <input type="number" id="broth" placeholder="예: 5000">
 
   <button onclick="calculate()">계산하기</button>
 
@@ -67,12 +67,12 @@
     function calculate() {
       const broth = parseFloat(document.getElementById("broth").value);
 
-      if (isNaN(broth)) {
-        document.getElementById("result").innerText = "냉육수 양을 입력해 주세요.";
+      if (isNaN(broth) || broth <= 0) {
+        document.getElementById("result").innerText = "육수 양을 입력해 주세요.";
         return;
       }
 
-      const seasoning = broth * 0.00089;
+      const seasoning = broth * 0.0005;
       document.getElementById("result").innerText = `넣어야 할 조미료 양: ${seasoning.toFixed(2)} g`;
     }
   </script>
