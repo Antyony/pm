@@ -66,13 +66,12 @@
   <script>
     function calculate() {
       const broth = parseFloat(document.getElementById("broth").value);
-
       if (isNaN(broth) || broth <= 0) {
         document.getElementById("result").innerText = "육수 양을 입력해 주세요.";
         return;
       }
-
-      const seasoning = broth * 0.0005;
+      // 1000ml 당 0.35g = 1ml 당 0.00035g
+      const seasoning = broth * 0.00035;
       document.getElementById("result").innerText = `넣어야 할 조미료 양: ${seasoning.toFixed(2)} g`;
     }
   </script>
